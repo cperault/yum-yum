@@ -28,6 +28,11 @@
 		B16C97EE27650CEB009F2299 /* Meals.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B16C97EC27650CEB009F2299 /* Meals.xcdatamodeld */; };
 		B16C97F1276529A1009F2299 /* meals.json in Resources */ = {isa = PBXBuildFile; fileRef = B16C97F0276529A1009F2299 /* meals.json */; };
 		B16C97F32765AE44009F2299 /* MealDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16C97F22765AE44009F2299 /* MealDetailsViewController.swift */; };
+		B1F48BFC2767C4EC00442BF3 /* categories.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F48BF72767C4EC00442BF3 /* categories.png */; };
+		B1F48BFD2767C4EC00442BF3 /* meal_details.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F48BF82767C4EC00442BF3 /* meal_details.png */; };
+		B1F48BFE2767C4EC00442BF3 /* all_meals.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F48BF92767C4EC00442BF3 /* all_meals.png */; };
+		B1F48BFF2767C4EC00442BF3 /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = B1F48BFA2767C4EC00442BF3 /* demo.gif */; };
+		B1F48C002767C4EC00442BF3 /* welcome_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F48BFB2767C4EC00442BF3 /* welcome_screen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +78,11 @@
 		B16C97ED27650CEB009F2299 /* Meals.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Meals.xcdatamodel; sourceTree = "<group>"; };
 		B16C97F0276529A1009F2299 /* meals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = meals.json; sourceTree = "<group>"; };
 		B16C97F22765AE44009F2299 /* MealDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsViewController.swift; sourceTree = "<group>"; };
+		B1F48BF72767C4EC00442BF3 /* categories.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = categories.png; sourceTree = "<group>"; };
+		B1F48BF82767C4EC00442BF3 /* meal_details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meal_details.png; sourceTree = "<group>"; };
+		B1F48BF92767C4EC00442BF3 /* all_meals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = all_meals.png; sourceTree = "<group>"; };
+		B1F48BFA2767C4EC00442BF3 /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
+		B1F48BFB2767C4EC00442BF3 /* welcome_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_screen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +133,7 @@
 		B14C5FD92763012F007AFCB2 /* Yum Yum */ = {
 			isa = PBXGroup;
 			children = (
+				B1F48BF62767C45700442BF3 /* Screenshots */,
 				B16C97EF276527F9009F2299 /* Data */,
 				B14C600C276301AA007AFCB2 /* Model */,
 				B14C600B276301A5007AFCB2 /* View */,
@@ -193,6 +204,18 @@
 				B16C97F0276529A1009F2299 /* meals.json */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		B1F48BF62767C45700442BF3 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				B1F48BF92767C4EC00442BF3 /* all_meals.png */,
+				B1F48BF72767C4EC00442BF3 /* categories.png */,
+				B1F48BFA2767C4EC00442BF3 /* demo.gif */,
+				B1F48BF82767C4EC00442BF3 /* meal_details.png */,
+				B1F48BFB2767C4EC00442BF3 /* welcome_screen.png */,
+			);
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,8 +323,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16C97F1276529A1009F2299 /* meals.json in Resources */,
+				B1F48BFF2767C4EC00442BF3 /* demo.gif in Resources */,
+				B1F48BFE2767C4EC00442BF3 /* all_meals.png in Resources */,
+				B1F48BFD2767C4EC00442BF3 /* meal_details.png in Resources */,
+				B1F48BFC2767C4EC00442BF3 /* categories.png in Resources */,
 				B14C5FE727630130007AFCB2 /* LaunchScreen.storyboard in Resources */,
 				B14C5FE427630130007AFCB2 /* Assets.xcassets in Resources */,
+				B1F48C002767C4EC00442BF3 /* welcome_screen.png in Resources */,
 				B14C5FE22763012F007AFCB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
