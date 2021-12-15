@@ -14,7 +14,7 @@
 		B11A0B5C276A21EB00AFFBDA /* FavoritedMealsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11A0B5B276A21EB00AFFBDA /* FavoritedMealsTableViewCell.swift */; };
 		B11A0B64276AA67900AFFBDA /* meal_details.png in Resources */ = {isa = PBXBuildFile; fileRef = B11A0B63276AA67900AFFBDA /* meal_details.png */; };
 		B11A0B68276AA72400AFFBDA /* all_meals.png in Resources */ = {isa = PBXBuildFile; fileRef = B11A0B65276AA72300AFFBDA /* all_meals.png */; };
-		B11A0B69276AA72400AFFBDA /* cartegories.png in Resources */ = {isa = PBXBuildFile; fileRef = B11A0B66276AA72300AFFBDA /* cartegories.png */; };
+		B11A0B69276AA72400AFFBDA /* categories.png in Resources */ = {isa = PBXBuildFile; fileRef = B11A0B66276AA72300AFFBDA /* categories.png */; };
 		B11A0B6A276AA72400AFFBDA /* favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = B11A0B67276AA72400AFFBDA /* favorites.png */; };
 		B14C5FDB2763012F007AFCB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C5FDA2763012F007AFCB2 /* AppDelegate.swift */; };
 		B14C5FDD2763012F007AFCB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C5FDC2763012F007AFCB2 /* SceneDelegate.swift */; };
@@ -62,7 +62,7 @@
 		B11A0B5B276A21EB00AFFBDA /* FavoritedMealsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritedMealsTableViewCell.swift; sourceTree = "<group>"; };
 		B11A0B63276AA67900AFFBDA /* meal_details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meal_details.png; sourceTree = "<group>"; };
 		B11A0B65276AA72300AFFBDA /* all_meals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = all_meals.png; path = ../../../../../../Desktop/all_meals.png; sourceTree = "<group>"; };
-		B11A0B66276AA72300AFFBDA /* cartegories.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cartegories.png; sourceTree = "<group>"; };
+		B11A0B66276AA72300AFFBDA /* categories.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = categories.png; sourceTree = "<group>"; };
 		B11A0B67276AA72400AFFBDA /* favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites.png; sourceTree = "<group>"; };
 		B14C5FD72763012F007AFCB2 /* Yum Yum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yum Yum.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14C5FDA2763012F007AFCB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 			children = (
 				B11A0B63276AA67900AFFBDA /* meal_details.png */,
 				B11A0B65276AA72300AFFBDA /* all_meals.png */,
-				B11A0B66276AA72300AFFBDA /* cartegories.png */,
+				B11A0B66276AA72300AFFBDA /* categories.png */,
 				B11A0B67276AA72400AFFBDA /* favorites.png */,
 				B1F48BFB2767C4EC00442BF3 /* welcome_screen.png */,
 			);
@@ -331,7 +331,7 @@
 				B16C97F1276529A1009F2299 /* meals.json in Resources */,
 				B11A0B6A276AA72400AFFBDA /* favorites.png in Resources */,
 				B11A0B68276AA72400AFFBDA /* all_meals.png in Resources */,
-				B11A0B69276AA72400AFFBDA /* cartegories.png in Resources */,
+				B11A0B69276AA72400AFFBDA /* categories.png in Resources */,
 				B14C5FE727630130007AFCB2 /* LaunchScreen.storyboard in Resources */,
 				B14C5FE427630130007AFCB2 /* Assets.xcassets in Resources */,
 				B1F48C002767C4EC00442BF3 /* welcome_screen.png in Resources */,
