@@ -14,6 +14,9 @@ class FavoritedMealsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.getFavoritedMeals()
     }
     
@@ -30,6 +33,7 @@ class FavoritedMealsTableViewController: UITableViewController {
         } catch {
             print("Could not retrieve favorited meals from storage")
         }
+        self.tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
