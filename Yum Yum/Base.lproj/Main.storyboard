@@ -197,7 +197,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Nri-0l-afI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.95294117649999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.96862745100000003" green="0.95294117649999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllMealsCell" rowHeight="50" id="ySW-i7-koK" customClass="AllMealsTableViewCell" customModule="Yum_Yum" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="50"/>
@@ -220,6 +221,7 @@
                                             </buttonConfiguration>
                                         </button>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.96862745100000003" green="0.95294117649999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="QHD-QR-19w" secondAttribute="trailing" constant="10" id="0mX-e1-4e6"/>
                                         <constraint firstItem="jGo-Bk-wB5" firstAttribute="leading" secondItem="AG2-PC-Jk9" secondAttribute="leading" constant="8" id="4sW-Oz-33j"/>
@@ -230,6 +232,7 @@
                                         <constraint firstItem="QHD-QR-19w" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jGo-Bk-wB5" secondAttribute="trailing" constant="8" symbolic="YES" id="zUx-PD-1GV"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.95294117649999999" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="mealNameLabel" destination="jGo-Bk-wB5" id="HSB-gx-45X"/>
                                 </connections>
