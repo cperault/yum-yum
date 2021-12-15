@@ -140,6 +140,12 @@
 			isa = PBXGroup;
 			children = (
 				B1F48BF62767C45700442BF3 /* Screenshots */,
+				B11A0B70276AA96C00AFFBDA /* all_meals.png */,
+				B11A0B6B276AA96C00AFFBDA /* categories.png */,
+				B11A0B6C276AA96C00AFFBDA /* demo.gif */,
+				B11A0B6F276AA96C00AFFBDA /* favorites.png */,
+				B11A0B6E276AA96C00AFFBDA /* meal_details.png */,
+				B11A0B6D276AA96C00AFFBDA /* welcome_screen.png */,
 				B16C97EF276527F9009F2299 /* Data */,
 				B14C600C276301AA007AFCB2 /* Model */,
 				B14C600B276301A5007AFCB2 /* View */,
