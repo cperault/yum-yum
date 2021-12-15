@@ -10,6 +10,10 @@
 		B10177A82764F6EC0099ADDF /* AllMealsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10177A72764F6EC0099ADDF /* AllMealsTableViewCell.swift */; };
 		B10177AA2764F70B0099ADDF /* AllMealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10177A92764F70B0099ADDF /* AllMealsTableViewController.swift */; };
 		B10177B02764F9330099ADDF /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10177AF2764F9330099ADDF /* TabBarViewController.swift */; };
+		B11A0B5A276A216200AFFBDA /* FavoritedMealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11A0B59276A216200AFFBDA /* FavoritedMealsTableViewController.swift */; };
+		B11A0B5C276A21EB00AFFBDA /* FavoritedMealsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11A0B5B276A21EB00AFFBDA /* FavoritedMealsTableViewCell.swift */; };
+		B11A0B5F276A606400AFFBDA /* favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = B11A0B5D276A606400AFFBDA /* favorites.png */; };
+		B11A0B60276A606400AFFBDA /* meal_details.png in Resources */ = {isa = PBXBuildFile; fileRef = B11A0B5E276A606400AFFBDA /* meal_details.png */; };
 		B14C5FDB2763012F007AFCB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C5FDA2763012F007AFCB2 /* AppDelegate.swift */; };
 		B14C5FDD2763012F007AFCB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C5FDC2763012F007AFCB2 /* SceneDelegate.swift */; };
 		B14C5FE22763012F007AFCB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B14C5FE02763012F007AFCB2 /* Main.storyboard */; };
@@ -29,7 +33,6 @@
 		B16C97F1276529A1009F2299 /* meals.json in Resources */ = {isa = PBXBuildFile; fileRef = B16C97F0276529A1009F2299 /* meals.json */; };
 		B16C97F32765AE44009F2299 /* MealDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16C97F22765AE44009F2299 /* MealDetailsViewController.swift */; };
 		B1F48BFC2767C4EC00442BF3 /* categories.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F48BF72767C4EC00442BF3 /* categories.png */; };
-		B1F48BFD2767C4EC00442BF3 /* meal_details.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F48BF82767C4EC00442BF3 /* meal_details.png */; };
 		B1F48BFE2767C4EC00442BF3 /* all_meals.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F48BF92767C4EC00442BF3 /* all_meals.png */; };
 		B1F48BFF2767C4EC00442BF3 /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = B1F48BFA2767C4EC00442BF3 /* demo.gif */; };
 		B1F48C002767C4EC00442BF3 /* welcome_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F48BFB2767C4EC00442BF3 /* welcome_screen.png */; };
@@ -56,6 +59,10 @@
 		B10177A72764F6EC0099ADDF /* AllMealsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMealsTableViewCell.swift; sourceTree = "<group>"; };
 		B10177A92764F70B0099ADDF /* AllMealsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMealsTableViewController.swift; sourceTree = "<group>"; };
 		B10177AF2764F9330099ADDF /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		B11A0B59276A216200AFFBDA /* FavoritedMealsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritedMealsTableViewController.swift; sourceTree = "<group>"; };
+		B11A0B5B276A21EB00AFFBDA /* FavoritedMealsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritedMealsTableViewCell.swift; sourceTree = "<group>"; };
+		B11A0B5D276A606400AFFBDA /* favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites.png; sourceTree = "<group>"; };
+		B11A0B5E276A606400AFFBDA /* meal_details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = meal_details.png; path = ../../../../../../Desktop/meal_details.png; sourceTree = "<group>"; };
 		B14C5FD72763012F007AFCB2 /* Yum Yum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yum Yum.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14C5FDA2763012F007AFCB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B14C5FDC2763012F007AFCB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +86,6 @@
 		B16C97F0276529A1009F2299 /* meals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = meals.json; sourceTree = "<group>"; };
 		B16C97F22765AE44009F2299 /* MealDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsViewController.swift; sourceTree = "<group>"; };
 		B1F48BF72767C4EC00442BF3 /* categories.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = categories.png; sourceTree = "<group>"; };
-		B1F48BF82767C4EC00442BF3 /* meal_details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meal_details.png; sourceTree = "<group>"; };
 		B1F48BF92767C4EC00442BF3 /* all_meals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = all_meals.png; sourceTree = "<group>"; };
 		B1F48BFA2767C4EC00442BF3 /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
 		B1F48BFB2767C4EC00442BF3 /* welcome_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_screen.png; sourceTree = "<group>"; };
@@ -185,6 +191,8 @@
 				B10177A92764F70B0099ADDF /* AllMealsTableViewController.swift */,
 				B10177AF2764F9330099ADDF /* TabBarViewController.swift */,
 				B16C97F22765AE44009F2299 /* MealDetailsViewController.swift */,
+				B11A0B59276A216200AFFBDA /* FavoritedMealsTableViewController.swift */,
+				B11A0B5B276A21EB00AFFBDA /* FavoritedMealsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,8 +219,9 @@
 			children = (
 				B1F48BF92767C4EC00442BF3 /* all_meals.png */,
 				B1F48BF72767C4EC00442BF3 /* categories.png */,
+				B11A0B5D276A606400AFFBDA /* favorites.png */,
+				B11A0B5E276A606400AFFBDA /* meal_details.png */,
 				B1F48BFA2767C4EC00442BF3 /* demo.gif */,
-				B1F48BF82767C4EC00442BF3 /* meal_details.png */,
 				B1F48BFB2767C4EC00442BF3 /* welcome_screen.png */,
 			);
 			path = Screenshots;
@@ -325,12 +334,13 @@
 				B16C97F1276529A1009F2299 /* meals.json in Resources */,
 				B1F48BFF2767C4EC00442BF3 /* demo.gif in Resources */,
 				B1F48BFE2767C4EC00442BF3 /* all_meals.png in Resources */,
-				B1F48BFD2767C4EC00442BF3 /* meal_details.png in Resources */,
 				B1F48BFC2767C4EC00442BF3 /* categories.png in Resources */,
 				B14C5FE727630130007AFCB2 /* LaunchScreen.storyboard in Resources */,
 				B14C5FE427630130007AFCB2 /* Assets.xcassets in Resources */,
+				B11A0B5F276A606400AFFBDA /* favorites.png in Resources */,
 				B1F48C002767C4EC00442BF3 /* welcome_screen.png in Resources */,
 				B14C5FE22763012F007AFCB2 /* Main.storyboard in Resources */,
+				B11A0B60276A606400AFFBDA /* meal_details.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +371,7 @@
 				B10177B02764F9330099ADDF /* TabBarViewController.swift in Sources */,
 				B14C601627631E7A007AFCB2 /* WelcomeViewController.swift in Sources */,
 				B14C6018276320B3007AFCB2 /* CategoryCollectionViewController.swift in Sources */,
+				B11A0B5A276A216200AFFBDA /* FavoritedMealsTableViewController.swift in Sources */,
 				B15BDE8827640360008E11CD /* MealListTableViewController.swift in Sources */,
 				B14C600E276301D3007AFCB2 /* CategoryModel.swift in Sources */,
 				B16C97F32765AE44009F2299 /* MealDetailsViewController.swift in Sources */,
@@ -369,6 +380,7 @@
 				B15BDE8A276405DE008E11CD /* MealListTableViewCell.swift in Sources */,
 				B14C5FDD2763012F007AFCB2 /* SceneDelegate.swift in Sources */,
 				B16C97EE27650CEB009F2299 /* Meals.xcdatamodeld in Sources */,
+				B11A0B5C276A21EB00AFFBDA /* FavoritedMealsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

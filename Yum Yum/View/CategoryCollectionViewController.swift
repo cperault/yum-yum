@@ -40,8 +40,8 @@ class CategoryCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SelectCategory" {
             guard let mealListVC = segue.destination as? MealListTableViewController else { return }
-            let index: [IndexPath] = collectionView.indexPathsForSelectedItems!
-            mealListVC.category = categories[index[0][1]].strCategory
+            let index: [IndexPath] = self.collectionView.indexPathsForSelectedItems!
+            mealListVC.category = self.categories[index[0][1]].strCategory
         }
     }
     
@@ -50,7 +50,7 @@ class CategoryCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        return self.categories.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -58,7 +58,7 @@ class CategoryCollectionViewController: UICollectionViewController {
             fatalError("Failed dequeuing.")
         }
         
-        let category = categories[indexPath.row]
+        let category = self.categories[indexPath.row]
         cell.categoryNameLabel.text = category.strCategory
         cell.categoryImageView.image = UIImage(named: category.strCategory.lowercased())
         return cell

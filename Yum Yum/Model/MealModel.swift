@@ -16,7 +16,7 @@ struct Meal: Codable, Comparable {
     let strMealThumb: String
     let idMeal: String
     var strMealEdited: String {
-        return capitalizedWords(mealName: strMeal)
+        return capitalizedWords(stringToEdit: strMeal)
     }
 }
 
@@ -86,7 +86,7 @@ struct MealDetails: Codable, Comparable {
         return strTags?.components(separatedBy: ",") ?? [""]
     }
     var strMealEdited: String {
-        return capitalizedWords(mealName: strMeal)
+        return capitalizedWords(stringToEdit: strMeal)
     }
     var allIngredients: [String?] {
         return [
@@ -114,12 +114,13 @@ struct MealDetails: Codable, Comparable {
     }
 }
 
+
 struct MealDetailsCollection: Codable {
     let meals: [MealDetails]
 }
 
-func capitalizedWords(mealName: String) -> String {
-    let words: [String] = mealName.components(separatedBy: [" "])
+func capitalizedWords(stringToEdit: String) -> String {
+    let words: [String] = stringToEdit.components(separatedBy: [" "])
     var wordsEdited: [String] = []
     let excludedWords: [String] = ["with", "and", "in"]
     
