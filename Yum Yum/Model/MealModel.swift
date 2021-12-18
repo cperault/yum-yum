@@ -165,7 +165,6 @@ func unfavoriteMeal(mealID: String) -> Void {
 
 func saveMealToFavorites(mealItem: MealDetails) -> Void {
     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-    
     let managedContext = appDelegate.persistentContainer.viewContext
     guard let entity = NSEntityDescription.entity(forEntityName: "FavoritedMeals", in: managedContext) else { return }
     let meal = FavoritedMeals(entity: entity, insertInto: managedContext)
