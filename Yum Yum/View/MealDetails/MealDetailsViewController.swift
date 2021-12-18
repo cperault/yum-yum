@@ -25,9 +25,9 @@ class MealDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.clearLabelTextValues()
         self.getFavoritedMeals()
         self.getMealDetails()
-        self.clearLabelTextValues()
     }
     
     private func getFavoritedMeals() -> Void {

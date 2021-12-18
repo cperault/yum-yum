@@ -136,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				B13D174E276D758E0025B8C6 /* RemoteImageUtility.swift */,
+				B13D1748276D3AE10025B8C6 /* FileBundleData.swift */,
+				B13D1746276D387D0025B8C6 /* URLConstants.swift */,
 				B13D1750276D76970025B8C6 /* CapitalizedMealUtility.swift */,
 			);
 			path = Utility;
@@ -210,17 +212,13 @@
 		B14C600B276301A5007AFCB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B14C601527631E7A007AFCB2 /* WelcomeViewController.swift */,
-				B14C6017276320B3007AFCB2 /* CategoryCollectionViewController.swift */,
-				B14C60192763271F007AFCB2 /* CategoryCollectionViewCell.swift */,
-				B15BDE8727640360008E11CD /* MealListTableViewController.swift */,
-				B15BDE89276405DE008E11CD /* MealListTableViewCell.swift */,
-				B10177A72764F6EC0099ADDF /* AllMealsTableViewCell.swift */,
-				B10177A92764F70B0099ADDF /* AllMealsTableViewController.swift */,
-				B10177AF2764F9330099ADDF /* TabBarViewController.swift */,
-				B16C97F22765AE44009F2299 /* MealDetailsViewController.swift */,
-				B11A0B59276A216200AFFBDA /* FavoritedMealsTableViewController.swift */,
-				B11A0B5B276A21EB00AFFBDA /* FavoritedMealsTableViewCell.swift */,
+				B161A819276E4CFF0061A4F2 /* Welcome */,
+				B161A81A276E4D080061A4F2 /* Category */,
+				B161A81B276E4D0F0061A4F2 /* MealList */,
+				B161A81C276E4D210061A4F2 /* AllMeals */,
+				B161A81F276E4D590061A4F2 /* TabBar */,
+				B161A81D276E4D2E0061A4F2 /* MealDetails */,
+				B161A81E276E4D350061A4F2 /* FavoritedMeals */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,10 +228,68 @@
 			children = (
 				B14C600D276301D3007AFCB2 /* CategoryModel.swift */,
 				B14C600F27630291007AFCB2 /* MealModel.swift */,
-				B13D1746276D387D0025B8C6 /* URLConstants.swift */,
-				B13D1748276D3AE10025B8C6 /* FileBundleData.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B161A819276E4CFF0061A4F2 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				B14C601527631E7A007AFCB2 /* WelcomeViewController.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		B161A81A276E4D080061A4F2 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				B14C6017276320B3007AFCB2 /* CategoryCollectionViewController.swift */,
+				B14C60192763271F007AFCB2 /* CategoryCollectionViewCell.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		B161A81B276E4D0F0061A4F2 /* MealList */ = {
+			isa = PBXGroup;
+			children = (
+				B15BDE8727640360008E11CD /* MealListTableViewController.swift */,
+				B15BDE89276405DE008E11CD /* MealListTableViewCell.swift */,
+			);
+			path = MealList;
+			sourceTree = "<group>";
+		};
+		B161A81C276E4D210061A4F2 /* AllMeals */ = {
+			isa = PBXGroup;
+			children = (
+				B10177A72764F6EC0099ADDF /* AllMealsTableViewCell.swift */,
+				B10177A92764F70B0099ADDF /* AllMealsTableViewController.swift */,
+			);
+			path = AllMeals;
+			sourceTree = "<group>";
+		};
+		B161A81D276E4D2E0061A4F2 /* MealDetails */ = {
+			isa = PBXGroup;
+			children = (
+				B16C97F22765AE44009F2299 /* MealDetailsViewController.swift */,
+			);
+			path = MealDetails;
+			sourceTree = "<group>";
+		};
+		B161A81E276E4D350061A4F2 /* FavoritedMeals */ = {
+			isa = PBXGroup;
+			children = (
+				B11A0B59276A216200AFFBDA /* FavoritedMealsTableViewController.swift */,
+				B11A0B5B276A21EB00AFFBDA /* FavoritedMealsTableViewCell.swift */,
+			);
+			path = FavoritedMeals;
+			sourceTree = "<group>";
+		};
+		B161A81F276E4D590061A4F2 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				B10177AF2764F9330099ADDF /* TabBarViewController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		B16C97EF276527F9009F2299 /* Data */ = {
