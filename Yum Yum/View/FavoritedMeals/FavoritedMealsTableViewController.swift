@@ -21,9 +21,7 @@ class FavoritedMealsTableViewController: UITableViewController {
     }
     
     private func getFavoritedMeals() -> Void {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest = NSFetchRequest<FavoritedMeals>(entityName: "FavoritedMeals")
@@ -57,9 +55,9 @@ class FavoritedMealsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedMealID = favoritedMeals[indexPath.row].mealID
-        let mealDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "MealDetailsViewController") as? MealDetailsViewController
-        mealDetailsVC?.mealID = selectedMealID
-        self.navigationController?.pushViewController(mealDetailsVC!, animated: true)
+        guard let mealDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "MealDetailsViewController") as? MealDetailsViewController else { return }
+        mealDetailsVC.mealID = selectedMealID
+        self.navigationController?.pushViewController(mealDetailsVC, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

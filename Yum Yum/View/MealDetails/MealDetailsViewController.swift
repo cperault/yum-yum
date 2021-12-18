@@ -55,9 +55,9 @@ class MealDetailsViewController: UIViewController {
                             self.mealCategoryLabel.text = "Category: \(self.mealDetails?.strCategory ?? "N/A")"
                             self.mealOriginLabel.text = "Origin: \(self.mealDetails?.strArea ?? "N/A")"
                             self.mealIngredientsLabel.text = "Ingredients"
-                            self.mealIngredientsTextView.text = self.mealDetails?.ingredientList
+                            self.mealIngredientsTextView.text = self.mealDetails?.ingredientList ?? "N/A"
                             self.mealInstructionsLabel.text = "Instructions"
-                            self.mealInstructionsTextView.text = self.mealDetails?.strInstructions
+                            self.mealInstructionsTextView.text = self.mealDetails?.strInstructions ?? "N/A"
                             self.hasFavoritedMeal = self.favoritedMeals.contains(where: { $0.mealID == self.mealDetails?.idMeal })
                             self.updateFavoriteButton(toggleValue: self.hasFavoritedMeal)
                         }

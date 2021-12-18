@@ -37,7 +37,7 @@ class CategoryCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SelectCategory" {
             guard let mealListVC = segue.destination as? MealListTableViewController else { return }
-            let index: [IndexPath] = self.collectionView.indexPathsForSelectedItems!
+            guard let index: [IndexPath] = self.collectionView.indexPathsForSelectedItems else { return }
             mealListVC.category = self.categories[index[0][1]].strCategory
         }
     }

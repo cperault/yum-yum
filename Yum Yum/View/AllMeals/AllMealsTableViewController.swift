@@ -40,9 +40,9 @@ class AllMealsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let mealDetailsVC = storyboard?.instantiateViewController(withIdentifier: "MealDetailsViewController") as? MealDetailsViewController
+        guard let mealDetailsVC = storyboard?.instantiateViewController(withIdentifier: "MealDetailsViewController") as? MealDetailsViewController else { return }
         let selectedMeal: Meal = meals[indexPath.row]
-        mealDetailsVC?.mealID = selectedMeal.idMeal
-        navigationController?.pushViewController(mealDetailsVC!, animated: true)
+        mealDetailsVC.mealID = selectedMeal.idMeal
+        navigationController?.pushViewController(mealDetailsVC, animated: true)
     }
 }
