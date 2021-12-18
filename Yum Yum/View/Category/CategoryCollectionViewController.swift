@@ -24,7 +24,7 @@ class CategoryCollectionViewController: UICollectionViewController {
         URLSession.shared.request(url: URLConstants.allCategoriesURL, expectedEncodingType: Categories.self) { (result: Result<Categories, Error>) in
             switch result {
                 case .success(let response):
-                    self.categories = response.categories
+                    self.categories = response.categories.sorted()
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
                     }
