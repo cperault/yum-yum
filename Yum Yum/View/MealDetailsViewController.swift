@@ -17,8 +17,7 @@ class MealDetailsViewController: UIViewController {
     @IBOutlet var mealIngredientsTextView: UITextView!
     @IBOutlet var mealInstructionsLabel: UILabel!
     @IBOutlet var mealInstructionsTextView: UITextView!
-    var meal: Meal? = nil
-    var idOFMeal: String? = nil
+    var mealID: String? = nil
     var mealDetails: MealDetails? = nil
     var ingredientsList: [String]? = nil
     var favoritedMeals: [FavoritedMeals] = []
@@ -28,6 +27,48 @@ class MealDetailsViewController: UIViewController {
         super.viewDidLoad()
         self.getFavoritedMeals()
         self.getMealDetails()
+        self.clearLabelTextValues()
+    }
+    
+    private func getFavoritedMeals() -> Void {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest = NSFetchRequest<FavoritedMeals>(entityName: "FavoritedMeals")
+        
+        do {
+            self.favoritedMeals = try managedContext.fetch(fetchRequest)
+        } catch {
+            print("Could not retrieve favorited meals from storage")
+        }
+    }
+    
+    private func getMealDetails() -> Void {
+        if let mealID = mealID {
+            URLSession.shared.requestWithParams(url: URLConstants.mealDetailsURL, parameters: ["i": mealID], expectedEncodingType: MealDetailsCollection.self) { (result: Result<MealDetailsCollection, Error>) in
+                switch result {
+                    case .success(let response):
+                        self.mealDetails = response.meals[0]
+                        DispatchQueue.main.async {
+                            self.mealImageView.image = getRemoteImage(mealImageURL: self.mealDetails?.strMealThumb ?? "")
+                            self.mealNameLabel.text = self.mealDetails?.strMealEdited
+                            self.mealCategoryLabel.text = "Category: \(self.mealDetails?.strCategory ?? "N/A")"
+                            self.mealOriginLabel.text = "Origin: \(self.mealDetails?.strArea ?? "N/A")"
+                            self.mealIngredientsLabel.text = "Ingredients"
+                            self.mealIngredientsTextView.text = self.mealDetails?.ingredientList
+                            self.mealInstructionsLabel.text = "Instructions"
+                            self.mealInstructionsTextView.text = self.mealDetails?.strInstructions
+                            self.hasFavoritedMeal = self.favoritedMeals.contains(where: { $0.mealID == self.mealDetails?.idMeal })
+                            self.updateFavoriteButton(toggleValue: self.hasFavoritedMeal)
+                        }
+                    case .failure(let error):
+                        print(error)
+                }
+            }
+        }
+    }
+    
+    private func clearLabelTextValues() -> Void {
         self.mealNameLabel.text = ""
         self.mealOriginLabel.text = ""
         self.mealCategoryLabel.text = ""
@@ -38,27 +79,41 @@ class MealDetailsViewController: UIViewController {
     }
     
     @objc private func favoriteMealAction() -> Void {
-        let meal = self.mealDetails
+        guard let meal = self.mealDetails else { return }
         //remove meal from favorites if it already exists; otherwise add meal to favorites
         if self.hasFavoritedMeal {
-            self.unfavoriteMeal(mealID: (meal?.idMeal)!)
+            self.unfavoriteMeal(mealItem: meal)
             self.hasFavoritedMeal = false
         } else {
             //prevent duplicate meal additions to favorites
-            self.saveMealToFavorites(mealItem: meal!)
+            self.saveMealToFavorites(mealItem: meal)
             self.hasFavoritedMeal = true
         }
         self.updateFavoriteButton(toggleValue: self.hasFavoritedMeal)
     }
     
-    func unfavoriteMeal(mealID: String) -> Void {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
+    private func saveMealToFavorites(mealItem: MealDetails) -> Void {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let managedContext = appDelegate.persistentContainer.viewContext
+        guard let entity = NSEntityDescription.entity(forEntityName: "FavoritedMeals", in: managedContext) else { return }
+        let meal = FavoritedMeals(entity: entity, insertInto: managedContext)
+        meal.setValue(mealItem.idMeal, forKey: "mealID")
+        meal.setValue(mealItem.strMealEdited, forKey: "mealName")
+        
+        do {
+            try managedContext.save()
+        } catch {
+            print("Could not save meal into favorites")
+        }
+    }
+    
+    private func unfavoriteMeal(mealItem: MealDetails) -> Void {
+        guard let mealItemID = mealItem.idMeal else { return }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<FavoritedMeals>(entityName: "FavoritedMeals")
-        fetchRequest.predicate = NSPredicate(format:"mealID = %@", mealID)
+        fetchRequest.predicate = NSPredicate(format:"mealID = %@", mealItemID)
         var results: [FavoritedMeals] = []
         
         do {
@@ -77,132 +132,7 @@ class MealDetailsViewController: UIViewController {
         }
     }
     
-    private func getFavoritedMeals() -> Void {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest: NSFetchRequest = NSFetchRequest<FavoritedMeals>(entityName: "FavoritedMeals")
-        
-        do {
-            self.favoritedMeals = try managedContext.fetch(fetchRequest)
-        } catch {
-            print("Could not retrieve favorited meals from storage")
-        }
-    }
-    
-    private func saveMealToFavorites(mealItem: MealDetails) -> Void {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "FavoritedMeals", in: managedContext)!
-        let meal = FavoritedMeals(entity: entity, insertInto: managedContext)
-        meal.setValue(mealItem.idMeal, forKey: "mealID")
-        meal.setValue(mealItem.strMealEdited, forKey: "mealName")
-        
-        do {
-            try managedContext.save()
-        } catch {
-            print("Could not save meal into favorites")
-        }
-    }
-    
-    
-    
-    private func getRemoteImage(mealImageURL: String) -> Data {
-        guard let imageURL: URL = URL(string: mealImageURL) else {
-            return Data()
-        }
-        guard let imageData: Data = try? Data(contentsOf: imageURL) else {
-            return Data()
-        }
-        
-        return imageData
-    }
-    
-    private func getMealDetails() -> Void {
-        var mealID: String = ""
-        
-        if self.idOFMeal == nil {
-            mealID = self.meal!.idMeal
-        } else {
-            mealID = self.idOFMeal!
-        }
-        
-        guard let url = URL(string: "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(String(describing: mealID))") else { return }
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data else { return }
-            do {
-                let decodedResponse = try JSONDecoder().decode(MealDetailsCollection.self, from: data)
-                self.mealDetails = decodedResponse.meals[0]
-                DispatchQueue.main.async {
-                    self.mealImageView.image = UIImage(data: self.getRemoteImage(mealImageURL: self.mealDetails?.strMealThumb ?? ""))?.roundedImage
-                    self.mealNameLabel.text = self.mealDetails?.strMealEdited
-                    self.mealCategoryLabel.text = "Category: \(self.mealDetails?.strCategory ?? "N/A")"
-                    self.mealOriginLabel.text = "Origin: \(self.mealDetails?.strArea ?? "N/A")"
-                    self.mealIngredientsLabel.text = "Ingredients"
-                    self.mealIngredientsTextView.text = "Some ingredients..."
-                    self.mealInstructionsLabel.text = "Instructions"
-                    self.mealIngredientsTextView.text = self.createIngredientList(data: self.mealDetails!)
-                    self.mealInstructionsTextView.text = self.mealDetails?.strInstructions
-                    self.hasFavoritedMeal = self.favoritedMeals.contains(where: { $0.mealID == self.mealDetails?.idMeal })
-                    self.updateFavoriteButton(toggleValue: self.hasFavoritedMeal)
-                }
-            } catch let error {
-                print(error)
-            }
-        }
-        task.resume()
-    }
-    
     private func updateFavoriteButton(toggleValue: Bool) -> Void {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: toggleValue ? "star.fill" : "star"), style: .plain, target: self, action: #selector(self.favoriteMealAction))
-    }
-    
-    private func createIngredientList(data: MealDetails) -> String {
-        var combinedIngredients: [String] = []
-        
-        for ingredient in data.allIngredients {
-            if ingredient != " - " && ingredient != " -  " {
-                if hasIncompleteIngredientComponent(for: ingredient!){
-                    combinedIngredients.append(String(cleanUpIngredient(for: ingredient!)))
-                } else {
-                    combinedIngredients.append(ingredient!)
-                }
-            }
-        }
-        return combinedIngredients.joined(separator: "\n")
-    }
-    
-    private func hasIncompleteIngredientComponent(for text: String) -> Bool {
-        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z]+ - $", options: [.caseInsensitive])
-        let range = NSRange(location: 0, length: text.count)
-        let matches = regex.matches(in: text, options: [], range: range)
-        return matches.first != nil
-    }
-    
-    func cleanUpIngredient(for ingredient: String) -> Substring {
-        let cleanedString = ingredient.dropLast(3)
-        return cleanedString
-    }
-}
-
-/*
- following extension found at:
- https://medium.com/@ahmedmuslimani609/rounded-corner-images-and-why-it-kills-your-app-248750884379
- */
-extension UIImage{
-    var roundedImage: UIImage {
-        let rect = CGRect(origin:CGPoint(x: 0, y: 0), size: self.size)
-        UIGraphicsBeginImageContextWithOptions(self.size, false, 1)
-        UIBezierPath(
-            roundedRect: rect,
-            cornerRadius: 15
-        ).addClip()
-        self.draw(in: rect)
-        return UIGraphicsGetImageFromCurrentImageContext()!
     }
 }

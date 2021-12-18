@@ -15,6 +15,7 @@ struct Meal: Codable, Comparable {
     let strMeal: String
     let strMealThumb: String
     let idMeal: String
+    
     var strMealEdited: String {
         return capitalizedWords(stringToEdit: strMeal)
     }
@@ -82,35 +83,52 @@ struct MealDetails: Codable, Comparable {
     let strImageSource: String?
     let strCreativeCommonsConfirmed: String?
     let dateModified: String?
+    
     var allTags: [String] {
         return strTags?.components(separatedBy: ",") ?? [""]
     }
+    
     var strMealEdited: String {
         return capitalizedWords(stringToEdit: strMeal)
     }
+    
     var allIngredients: [String?] {
         return [
-            "\(strIngredient1 ?? "") - \(strMeasure1 ?? "")",
-            "\(strIngredient2 ?? "") - \(strMeasure2 ?? "")",
-            "\(strIngredient3 ?? "") - \(strMeasure3 ?? "")",
-            "\(strIngredient4 ?? "") - \(strMeasure4 ?? "")",
-            "\(strIngredient5 ?? "") - \(strMeasure5 ?? "")",
-            "\(strIngredient6 ?? "") - \(strMeasure6 ?? "")",
-            "\(strIngredient7 ?? "") - \(strMeasure7 ?? "")",
-            "\(strIngredient8 ?? "") - \(strMeasure8 ?? "")",
-            "\(strIngredient9 ?? "") - \(strMeasure9 ?? "")",
-            "\(strIngredient10 ?? "") - \(strMeasure10 ?? "")",
-            "\(strIngredient11 ?? "") - \(strMeasure11 ?? "")",
-            "\(strIngredient12 ?? "") - \(strMeasure12 ?? "")",
-            "\(strIngredient13 ?? "") - \(strMeasure13 ?? "")",
-            "\(strIngredient14 ?? "") - \(strMeasure14 ?? "")",
-            "\(strIngredient15 ?? "") - \(strMeasure15 ?? "")",
-            "\(strIngredient16 ?? "") - \(strMeasure16 ?? "")",
-            "\(strIngredient17 ?? "") - \(strMeasure17 ?? "")",
-            "\(strIngredient18 ?? "") - \(strMeasure18 ?? "")",
-            "\(strIngredient19 ?? "") - \(strMeasure19 ?? "")",
-            "\(strIngredient20 ?? "") - \(strMeasure20 ?? "")",
+            strIngredient1, strIngredient2, strIngredient3, strIngredient4,
+            strIngredient5, strIngredient6, strIngredient7, strIngredient8,
+            strIngredient9, strIngredient10, strIngredient11, strIngredient12,
+            strIngredient13, strIngredient14, strIngredient15, strIngredient16,
+            strIngredient17, strIngredient18, strIngredient19, strIngredient20,
         ]
+    }
+    
+    var allMeasurements: [String?] {
+        return [
+            strMeasure1, strMeasure2, strMeasure3, strMeasure4,
+            strMeasure5, strMeasure6, strMeasure7, strMeasure8,
+            strMeasure9, strMeasure10, strMeasure11, strMeasure12,
+            strMeasure13, strMeasure14, strMeasure15, strMeasure16,
+            strMeasure17, strMeasure18, strMeasure19, strMeasure20,
+        ]
+    }
+    
+    var ingredientList: String {
+        return createIngredientsList()
+    }
+    
+    func createIngredientsList() -> String {
+        var ingredientsList: [String] = []
+        let ingredients: [String?] = allIngredients
+        let measurements: [String?] = allMeasurements
+        
+        for index in stride(from: 0, to: 20, by: 1) {
+            if measurements[index]?.trimmingCharacters(in: .whitespacesAndNewlines) != "" && measurements[index] != nil {
+                ingredientsList.append("\(capitalizedWords(stringToEdit: ingredients[index]!)) - \(measurements[index]!)")
+            } else if ingredients[index] != "" && ingredients[index] != nil {
+                ingredientsList.append("\(capitalizedWords(stringToEdit: ingredients[index]!))")
+            }
+        }
+        return ingredientsList.joined(separator: "\n")
     }
 }
 
@@ -119,14 +137,3 @@ struct MealDetailsCollection: Codable {
     let meals: [MealDetails]
 }
 
-func capitalizedWords(stringToEdit: String) -> String {
-    let words: [String] = stringToEdit.components(separatedBy: [" "])
-    var wordsEdited: [String] = []
-    let excludedWords: [String] = ["with", "and", "in"]
-    
-    for word in words {
-        wordsEdited.append(!excludedWords.contains(word.lowercased()) ? word.capitalized : word.lowercased())
-    }
-    
-    return wordsEdited.joined(separator: " ")
-}

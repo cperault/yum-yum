@@ -58,7 +58,7 @@ class MealListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mealDetailsVC = storyboard?.instantiateViewController(withIdentifier: "MealDetailsViewController") as? MealDetailsViewController
         let selectedMeal: Meal = meals[indexPath.row]
-        mealDetailsVC?.meal = selectedMeal
+        mealDetailsVC?.mealID = selectedMeal.idMeal
         navigationController?.pushViewController(mealDetailsVC!, animated: true)
     }
 }

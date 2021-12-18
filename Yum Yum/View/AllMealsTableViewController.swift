@@ -19,19 +19,9 @@ class AllMealsTableViewController: UITableViewController {
     }
     
     private func getAllMeals() -> Void {
-        do {
-            if let filePath = Bundle.main.path(forResource: "meals", ofType: "json") {
-                let fileURL = URL(fileURLWithPath: filePath)
-                let data = try Data(contentsOf: fileURL)
-                let decodedData = try JSONDecoder().decode(Meals.self, from: data)
-                self.meals = decodedData.meals
-                self.tableView.reloadData()
-            } else {
-                print("Could not find JSON file in Bundle")
-            }
-        } catch {
-            print("Could not read JSON file. Error: \(error)")
-        }
+        let mealData = getFileBundleData(fileName: "meals", fileExtension: "json", expectedEncodingType: Meals.self)
+        self.meals = mealData.meals
+        self.tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -52,7 +42,7 @@ class AllMealsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mealDetailsVC = storyboard?.instantiateViewController(withIdentifier: "MealDetailsViewController") as? MealDetailsViewController
         let selectedMeal: Meal = meals[indexPath.row]
-        mealDetailsVC?.meal = selectedMeal
+        mealDetailsVC?.mealID = selectedMeal.idMeal
         navigationController?.pushViewController(mealDetailsVC!, animated: true)
     }
 }

@@ -58,7 +58,7 @@ class FavoritedMealsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedMealID = favoritedMeals[indexPath.row].mealID
         let mealDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "MealDetailsViewController") as? MealDetailsViewController
-        mealDetailsVC?.idOFMeal = selectedMealID
+        mealDetailsVC?.mealID = selectedMealID
         self.navigationController?.pushViewController(mealDetailsVC!, animated: true)
     }
     
@@ -69,9 +69,7 @@ class FavoritedMealsTableViewController: UITableViewController {
     }
     
     func unfavoriteMeal(mealID: String, indexPath: IndexPath) -> Void {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<FavoritedMeals>(entityName: "FavoritedMeals")
