@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
 struct Meal: Codable, Comparable {
     static func < (lhs: Meal, rhs: Meal) -> Bool {
@@ -135,5 +137,45 @@ struct MealDetails: Codable, Comparable {
 
 struct MealDetailsCollection: Codable {
     let meals: [MealDetails]
+}
+
+func unfavoriteMeal(mealID: String) -> Void {
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+    let managedContext = appDelegate.persistentContainer.viewContext
+    let fetchRequest = NSFetchRequest<FavoritedMeals>(entityName: "FavoritedMeals")
+    fetchRequest.predicate = NSPredicate(format:"mealID = %@", mealID)
+    var results: [FavoritedMeals] = []
+    
+    do {
+        results = try managedContext.fetch(fetchRequest)
+    } catch {
+        print("Could not complete fetch request")
+    }
+    
+    if results.count > 0 {
+        managedContext.delete(results[0]) //`.delete()` does not throw
+        
+        do {
+            try managedContext.save()
+        } catch {
+            print("Could not save after deletion")
+        }
+    }
+}
+
+func saveMealToFavorites(mealItem: MealDetails) -> Void {
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+    
+    let managedContext = appDelegate.persistentContainer.viewContext
+    guard let entity = NSEntityDescription.entity(forEntityName: "FavoritedMeals", in: managedContext) else { return }
+    let meal = FavoritedMeals(entity: entity, insertInto: managedContext)
+    meal.setValue(mealItem.idMeal, forKey: "mealID")
+    meal.setValue(mealItem.strMealEdited, forKey: "mealName")
+    
+    do {
+        try managedContext.save()
+    } catch {
+        print("Could not save meal into favorites")
+    }
 }
 
