@@ -51,10 +51,7 @@ class CategoryCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CategoryCollectionViewCell else {
-            fatalError("Failed dequeuing.")
-        }
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CategoryCollectionViewCell
         let category = self.categories[indexPath.row]
         cell.categoryNameLabel.text = category.strCategory
         cell.categoryImageView.image = UIImage(named: category.strCategory.lowercased())

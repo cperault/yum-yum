@@ -44,7 +44,7 @@ class MealDetailsViewController: UIViewController {
     }
     
     private func getMealDetails() -> Void {
-        if let mealID = mealID {
+        if let mealID = self.mealID {
             URLSession.shared.requestWithParams(url: URLConstants.mealDetailsURL, parameters: ["i": mealID], expectedEncodingType: MealDetailsCollection.self) { (result: Result<MealDetailsCollection, Error>) in
                 switch result {
                     case .success(let response):

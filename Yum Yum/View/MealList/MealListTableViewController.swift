@@ -19,23 +19,18 @@ class MealListTableViewController: UITableViewController {
     }
     
     private func getMeals() -> Void {
-        if let category = category {
-            let url = URL(string: "https://www.themealdb.com/api/json/v1/1/filter.php?c=\(category.lowercased())")!
-            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-                guard let data = data else { return }
-                do {
-                    let decodedResponse = try JSONDecoder().decode(Meals.self, from: data)
-                    self.meals = decodedResponse.meals.sorted()
-                } catch let error {
-                    print(error)
-                }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+        if let category = self.category {
+            URLSession.shared.requestWithParams(url: URLConstants.mealsByCategoryURL, parameters: ["c": category.lowercased()], expectedEncodingType: Meals.self) { (result: Result<Meals, Error>) in
+                switch result {
+                    case .success(let response):
+                        self.meals = response.meals.sorted()
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    case .failure(let error):
+                        print(error)
                 }
             }
-            task.resume()
-        } else {
-            print("Failed to receive meals. Current value of category: \(category ?? "nil")")
         }
     }
     
