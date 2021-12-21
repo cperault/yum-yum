@@ -36,6 +36,12 @@
 		B16C97EE27650CEB009F2299 /* Meals.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B16C97EC27650CEB009F2299 /* Meals.xcdatamodeld */; };
 		B16C97F1276529A1009F2299 /* meals.json in Resources */ = {isa = PBXBuildFile; fileRef = B16C97F0276529A1009F2299 /* meals.json */; };
 		B16C97F32765AE44009F2299 /* MealDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16C97F22765AE44009F2299 /* MealDetailsViewController.swift */; };
+		B1CA4F7D27726E9D00258244 /* favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CA4F7727726E9C00258244 /* favorites.png */; };
+		B1CA4F7E27726E9D00258244 /* categories.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CA4F7827726E9C00258244 /* categories.png */; };
+		B1CA4F7F27726E9D00258244 /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = B1CA4F7927726E9C00258244 /* demo.gif */; };
+		B1CA4F8027726E9D00258244 /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CA4F7A27726E9C00258244 /* welcome.png */; };
+		B1CA4F8127726E9D00258244 /* all_meals.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CA4F7B27726E9D00258244 /* all_meals.png */; };
+		B1CA4F8227726E9D00258244 /* meal_details.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CA4F7C27726E9D00258244 /* meal_details.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +95,12 @@
 		B16C97ED27650CEB009F2299 /* Meals.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Meals.xcdatamodel; sourceTree = "<group>"; };
 		B16C97F0276529A1009F2299 /* meals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = meals.json; sourceTree = "<group>"; };
 		B16C97F22765AE44009F2299 /* MealDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsViewController.swift; sourceTree = "<group>"; };
+		B1CA4F7727726E9C00258244 /* favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favorites.png; path = ../../../../../../Desktop/favorites.png; sourceTree = "<group>"; };
+		B1CA4F7827726E9C00258244 /* categories.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = categories.png; path = ../../../../../../Desktop/categories.png; sourceTree = "<group>"; };
+		B1CA4F7927726E9C00258244 /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = demo.gif; path = ../../../../../../Desktop/demo.gif; sourceTree = "<group>"; };
+		B1CA4F7A27726E9C00258244 /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = welcome.png; path = ../../../../../../Desktop/welcome.png; sourceTree = "<group>"; };
+		B1CA4F7B27726E9D00258244 /* all_meals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = all_meals.png; path = ../../../../../../Desktop/all_meals.png; sourceTree = "<group>"; };
+		B1CA4F7C27726E9D00258244 /* meal_details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = meal_details.png; path = ../../../../../../Desktop/meal_details.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +315,12 @@
 		B1F48BF62767C45700442BF3 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
+				B1CA4F7B27726E9D00258244 /* all_meals.png */,
+				B1CA4F7827726E9C00258244 /* categories.png */,
+				B1CA4F7927726E9C00258244 /* demo.gif */,
+				B1CA4F7727726E9C00258244 /* favorites.png */,
+				B1CA4F7C27726E9D00258244 /* meal_details.png */,
+				B1CA4F7A27726E9C00258244 /* welcome.png */,
 			);
 			path = Screenshots;
 			sourceTree = "<group>";
@@ -412,9 +430,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16C97F1276529A1009F2299 /* meals.json in Resources */,
+				B1CA4F8127726E9D00258244 /* all_meals.png in Resources */,
+				B1CA4F7F27726E9D00258244 /* demo.gif in Resources */,
+				B1CA4F8027726E9D00258244 /* welcome.png in Resources */,
 				B14C5FE727630130007AFCB2 /* LaunchScreen.storyboard in Resources */,
+				B1CA4F7D27726E9D00258244 /* favorites.png in Resources */,
+				B1CA4F7E27726E9D00258244 /* categories.png in Resources */,
 				B14C5FE427630130007AFCB2 /* Assets.xcassets in Resources */,
 				B14C5FE22763012F007AFCB2 /* Main.storyboard in Resources */,
+				B1CA4F8227726E9D00258244 /* meal_details.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +672,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -677,6 +702,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
