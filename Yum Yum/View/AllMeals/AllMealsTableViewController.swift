@@ -18,7 +18,7 @@ class AllMealsTableViewController: UITableViewController {
         getAllMeals()
     }
 
-    // Due to limitations with the API and there not being an end point to fetch all meals, I manually called each endpoint
+    // Due to limitations with the API and there not being an endpoint to fetch all meals, I manually called each endpoint
     // to gather all the meals and mocked my own retrieval of them by pulling from local bundle data.
     private func getAllMeals() -> Void {
         let mealData = getFileBundleData(fileName: "meals", fileExtension: "json", expectedEncodingType: Meals.self)
